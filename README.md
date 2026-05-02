@@ -201,7 +201,12 @@ open http://localhost:5050
 ## Environment Variables
 
 ```dotenv
-# PostgreSQL
+AIRFLOW_UID=50000
+FERNET_KEY=UN70KaCJYZ5W8YZksYdp5gWjL1Ct4mEf3FGD43C-VDY=
+AIRFLOW__API_AUTH__JWT_SECRET=retail_inventory_pipeline_secret
+AIRFLOW__API_AUTH__JWT_ISSUER=iki_data_engineer
+
+# Database
 POSTGRES_USER=retail_user
 POSTGRES_PASSWORD=retail_password
 POSTGRES_DB=airflow
@@ -210,12 +215,19 @@ POSTGRES_PORT=5432
 
 PIPELINE_DB_NAME=retail_pipeline
 
-# Airflow
-AIRFLOW_UID=50000
-FERNET_KEY=your_fernet_key
-AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://retail_user:retail_password@postgres/airflow
-AIRFLOW__CELERY__RESULT_BACKEND=db+postgresql://retail_user:retail_password@postgres/airflow
-AIRFLOW__CELERY__BROKER_URL=redis://:@redis:6379/0
+# Redis
+REDIS_HOST=redis
+REDIS_PORT=6379
+
+# Airflow Connections
+AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}/${POSTGRES_DB}
+AIRFLOW__CELERY__RESULT_BACKEND=db+postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}/${POSTGRES_DB}
+AIRFLOW__CELERY__BROKER_URL=redis://:@${REDIS_HOST}:${REDIS_PORT}/0
+
+# Web UI
+_AIRFLOW_WWW_USER_USERNAME=airflow
+_AIRFLOW_WWW_USER_PASSWORD=airflow
+
 ```
 
 ---
@@ -246,5 +258,12 @@ AIRFLOW__CELERY__BROKER_URL=redis://:@redis:6379/0
 | Schema-per-layer                       | `bronze.*` / `silver.*` / `gold.*` — explicit, production standard |
 
 ---
+
+## Snippets
+
+![alt text](assets/img/overall.png)
+![alt text](assets/img/bronze_dag.png)
+![alt text](assets/img/silver_dag.png)
+![alt text](assets/img/gold_dag.png)
 
 _Portfolio project by **ikigami** — Philippine Retail Data Engineering Showcase_
