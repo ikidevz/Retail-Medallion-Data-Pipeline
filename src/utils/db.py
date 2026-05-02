@@ -11,7 +11,7 @@ def get_connection_params() -> dict:
     return {
         "host": os.getenv("POSTGRES_HOST", "postgres"),
         "port": int(os.getenv("POSTGRES_PORT", 5432)),
-        "dbname": os.getenv("POSTGRES_DB", "retail_pipeline"),
+        "dbname": os.getenv("PIPELINE_DB_NAME", "retail_pipeline"),
         "user": os.getenv("POSTGRES_USER", "retail_user"),
         "password": os.getenv("POSTGRES_PASSWORD", "retail_password"),
     }
