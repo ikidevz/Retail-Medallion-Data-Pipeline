@@ -2,6 +2,8 @@
 -- SILVER LAYER (Cleaned)
 -- =============================================
 
+\c retail_pipeline
+
 CREATE TABLE IF NOT EXISTS silver.sales_cleaned (
     sale_id             BIGSERIAL PRIMARY KEY,
     ingestion_timestamp TIMESTAMP,

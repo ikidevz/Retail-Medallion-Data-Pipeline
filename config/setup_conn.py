@@ -36,7 +36,7 @@ if __name__ == "__main__":
         "--conn-host",     os.getenv("POSTGRES_HOST",     "postgres"),
         "--conn-login",    os.getenv("POSTGRES_USER",     "airflow"),
         "--conn-password", os.getenv("POSTGRES_PASSWORD", "airflow"),
-        "--conn-schema",   os.getenv("POSTGRES_DB",       "airflow"),
+        "--conn-schema",   "retail_pipeline",
         "--conn-port",     os.getenv("POSTGRES_PORT",     "5432"),
     ]
 

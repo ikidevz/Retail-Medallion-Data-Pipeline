@@ -1,0 +1,2 @@
+postgres:5432:airflow:retail_user:retail_password
+postgres:5432:retail_pipeline:retail_user:retail_password

@@ -2,6 +2,8 @@
 -- COMMENTS
 -- =============================================
 
+\c retail_pipeline
+
 COMMENT ON SCHEMA bronze IS 'Raw ingestion layer';
 COMMENT ON SCHEMA silver IS 'Cleaned and validated layer';
 COMMENT ON SCHEMA gold   IS 'Business-level dimensional model';

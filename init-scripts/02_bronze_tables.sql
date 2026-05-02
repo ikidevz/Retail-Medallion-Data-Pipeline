@@ -2,6 +2,8 @@
 -- BRONZE LAYER (Raw)
 -- =============================================
 
+\c retail_pipeline
+
 CREATE TABLE IF NOT EXISTS bronze.sales_raw (
     raw_id              SERIAL PRIMARY KEY,
     ingestion_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

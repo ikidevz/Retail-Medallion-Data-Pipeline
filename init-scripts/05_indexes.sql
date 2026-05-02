@@ -2,6 +2,8 @@
 -- INDEXES
 -- =============================================
 
+\c retail_pipeline
+
 -- Bronze
 CREATE INDEX IF NOT EXISTS idx_bronze_sales_batch      ON bronze.sales_raw(batch_id);
 CREATE INDEX IF NOT EXISTS idx_bronze_sales_sale_ts    ON bronze.sales_raw(sale_ts);

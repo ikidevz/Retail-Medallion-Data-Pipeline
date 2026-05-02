@@ -4,6 +4,8 @@
 
 -- Dimensions
 
+\c retail_pipeline
+
 CREATE TABLE IF NOT EXISTS gold.dim_date (
     date_key     INTEGER PRIMARY KEY,
     full_date    DATE NOT NULL,

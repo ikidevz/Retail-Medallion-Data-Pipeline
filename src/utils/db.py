@@ -9,11 +9,11 @@ logger = get_logger(__name__)
 
 def get_connection_params() -> dict:
     return {
-        "host": os.getenv("DB_HOST", "localhost"),
-        "port": int(os.getenv("DB_PORT", 5432)),
-        "dbname": os.getenv("DB_NAME", "retail_pipeline"),
-        "user": os.getenv("DB_USER", "postgres"),
-        "password": os.getenv("DB_PASSWORD", "postgres"),
+        "host": os.getenv("POSTGRES_HOST", "postgres"),
+        "port": int(os.getenv("POSTGRES_PORT", 5432)),
+        "dbname": os.getenv("POSTGRES_DB", "retail_pipeline"),
+        "user": os.getenv("POSTGRES_USER", "retail_user"),
+        "password": os.getenv("POSTGRES_PASSWORD", "retail_password"),
     }
 
 
