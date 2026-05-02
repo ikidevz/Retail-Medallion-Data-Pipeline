@@ -1,0 +1,4 @@
+psycopg2-binary
+pymysql
+polars
+python-dotenv
